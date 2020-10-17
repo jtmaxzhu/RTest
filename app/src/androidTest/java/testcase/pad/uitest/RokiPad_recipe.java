@@ -62,6 +62,13 @@ public class RokiPad_recipe extends BaseTest {
     }
 
 
+    /**
+     * 1、进入菜谱页面
+     * 2、搜索红烧肉
+     * 3、验证搜索结果是否正常
+     * 4、下面模块逻辑重复1-3
+     * @throws Exception
+     */
     @Test
     @MethodDescription("搜索菜谱")
     public void Test02_SearchRecipe() throws Exception {
@@ -88,6 +95,11 @@ public class RokiPad_recipe extends BaseTest {
         fan.clickRecipe();
     }
 
+    /**
+     * 1、搜索框为空
+     * 2、验证结果是否符合预期，应该提示菜谱不存在
+     * @throws Exception
+     */
     @Test
     @MethodDescription("搜索空菜谱")
     public void Test01_SearchNullRecipe() throws Exception {
@@ -98,6 +110,12 @@ public class RokiPad_recipe extends BaseTest {
         time(delayTimeMs);
     }
 
+
+    /**
+     * 1、搜索一个不存在的菜谱
+     * 2、验证给出的提示是否正确
+     * @throws Exception
+     */
     @Test
     @MethodDescription("搜索菜谱不存在")
     public void Test03_SearchNoRecipe() throws Exception {
@@ -109,6 +127,12 @@ public class RokiPad_recipe extends BaseTest {
     }
 
 
+    /**
+     * 1、点击历史搜索记录的菜谱标签
+     * 2、验证搜索结果是否符合预期
+     *
+     * @throws Exception
+     */
     @Test
     @MethodDescription("使用历史记录搜索菜谱")
     public void Test04_SearchRecipeUseRecord() throws Exception {
@@ -128,6 +152,12 @@ public class RokiPad_recipe extends BaseTest {
         time(delayTimeMs);
     }
 
+
+    /**
+     * 1、依次点击菜谱右侧的选项卡
+     * 2、验证各组内部菜谱显示是否正常（菜谱名称来判断）
+     * @throws Exception
+     */
     @Test
     @MethodDescription("验证菜谱加载正确性")
     public void Test05_RecipeRecom() throws Exception {
@@ -186,6 +216,14 @@ public class RokiPad_recipe extends BaseTest {
         time(delayTimeMs);
     }
 
+
+    /**
+     * 1、依次点击菜谱各选项卡
+     * 2、菜谱显示列表左滑到不能滑动位置
+     * 3、右滑到不能滑动为止
+     * 4、验证是否出现异常
+     * @throws Exception
+     */
     @Test
     @MethodDescription("验证菜谱左右滑动加载")
     public void Test06_RecipeSwip() throws Exception {
@@ -220,6 +258,13 @@ public class RokiPad_recipe extends BaseTest {
     }
 
 
+    /**
+     * 1、进入某个菜谱的内部
+     * 2、点击菜谱详情
+     * 3、点击开始烹饪
+     * 4、验证Toast内容
+     * @throws Exception
+     */
     @Test
     @MethodDescription("验证菜谱内部显示")
     public void Test07_RecipeDetail() throws Exception {

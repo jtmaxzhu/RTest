@@ -95,23 +95,6 @@ public class ComUtil {
 
     //获取控件地址
     public static UiObject2 WaitForExists(BySelector bySelector){
-/*        UiObject2 obj;
-        long endTimeMillis;
-        long offsetTimeMillis;
-        long startTimeMillis;
-        startTimeMillis = SystemClock.uptimeMillis();
-        while (true) {
-            obj = mDevice.findObject(bySelector);
-            endTimeMillis = SystemClock.uptimeMillis();
-            offsetTimeMillis = endTimeMillis-startTimeMillis;
-            if (obj != null) {
-                break;
-            }
-            if(offsetTimeMillis >6000){
-                throw new ParameterException("控件不存在");
-            }
-        }
-        return  obj;*/
         return mDevice.wait(Until.findObject(bySelector), waitTime);
     }
 

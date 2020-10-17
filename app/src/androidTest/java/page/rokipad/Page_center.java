@@ -94,7 +94,7 @@ public class Page_center extends BasePage {
      */
     public void clickShareControl() throws Exception {
         shareControl =  WaitForExistsList(By.res(TAG_PACKAGEPAD, "tv_share_control_power"));
-        shareControl.get(0).click();
+        //shareControl.get(0).click();
         Rect rect = shareControl.get(0).getVisibleBounds();
         ClickElement(rect.left, rect.top, rect.right, rect.bottom);
         LogUtil.d(TAG,"点击"+Page_center.class.getDeclaredField("shareControl")

@@ -2,8 +2,11 @@ package page.rokipad;
 
 import android.graphics.Rect;
 import android.support.test.uiautomator.By;
+import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.UiObjectNotFoundException;
 import android.support.test.uiautomator.UiScrollable;
+import android.support.test.uiautomator.UiSelector;
 import android.support.test.uiautomator.Until;
 
 import java.io.IOException;
@@ -79,33 +82,32 @@ public class Page_smart extends BasePage {
 
 
     //获取爆炒时间
-    public String getVariablTime(){
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "tv_variable_time")),1000)){
-            mDevice.drag(300,200, 300,400,10);
-        }
+    public String getVariablTime() throws Exception {
+        find("tv_variable_time");
         return WaitForExists(By.res(TAG_PACKAGEPAD, "tv_variable_time")).getText();
     }
 
     //获取星期
-    public String getWeekDay(){
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "tv_week_day")),1000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
+    public String getWeekDay() throws Exception {
+        find("tv_week_day");
         return WaitForExists(By.res(TAG_PACKAGEPAD, "tv_week_day")).getText();
     }
 
     //获取北京时间
-    public String getTimeDay(){
+    public String getTimeDay() throws Exception {
+        find("tv_time_day");
         return WaitForExists(By.res(TAG_PACKAGEPAD, "tv_time_day")).getText();
     }
 
     //获取通风天数
-    public String getAerationDay(){
+    public String getAerationDay() throws Exception {
+        find("tv_aeration_day");
         return WaitForExists(By.res(TAG_PACKAGEPAD, "tv_aeration_day")).getText();
     }
 
     //获取延时时间
-    public String getDelayedMIn(){
+    public String getDelayedMIn() throws Exception {
+        find("tv_delayed_min");
         return WaitForExists(By.res(TAG_PACKAGEPAD, "tv_delayed_min")).getText();
     }
 
@@ -127,11 +129,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickVariablTime() throws Exception {
-        variableTime =  WaitForExists(By.res(TAG_PACKAGEPAD, "tv_variable_time"));
-        variableTime.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("variableTime")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("tv_variable_time");
     }
 
     /**
@@ -139,14 +137,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickWeekDay() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "tv_week_day")),1000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
-        weekDay =  WaitForExists(By.res(TAG_PACKAGEPAD, "tv_week_day"));
-        weekDay.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("weekDay")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("tv_week_day");
     }
 
     /**
@@ -154,14 +145,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickTimeDay() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "tv_time_day")),1000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
-        timeDay =  WaitForExists(By.res(TAG_PACKAGEPAD, "tv_time_day"));
-        timeDay.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("timeDay")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("tv_time_day");
     }
 
 
@@ -171,11 +155,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickAerationDay() throws Exception {
-        aerationDay =  WaitForExists(By.res(TAG_PACKAGEPAD, "tv_aeration_day"));
-        aerationDay.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("aerationDay")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("tv_aeration_day");
     }
 
     /**
@@ -183,11 +163,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickDelayedMin() throws Exception {
-        delayedMin =  WaitForExists(By.res(TAG_PACKAGEPAD, "tv_delayed_min"));
-        delayedMin.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("delayedMin")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("tv_delayed_min");
     }
 
 
@@ -196,11 +172,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickAerationSwitch() throws Exception {
-        aeration_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_aeration_switch"));
-        aeration_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("aeration_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_fan_aeration_switch");
     }
 
     /**
@@ -208,14 +180,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickBreathTimeSwitch() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "iv_fan_breath_time_switch")),3000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
-        breath_time_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_breath_time_switch"));
-        breath_time_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("breath_time_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_fan_breath_time_switch");
     }
 
     /**
@@ -223,11 +188,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickVariableSwitch() throws Exception {
-        variable_time_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_variable_time_switch"));
-        variable_time_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("variable_time_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_variable_time_switch");
     }
 
     /**
@@ -235,14 +196,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickOilSwitch() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "iv_fan_oil_switch")),3000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
-        iv_fan_oil_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_oil_switch"));
-        iv_fan_oil_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("iv_fan_oil_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_fan_oil_switch");
     }
 
 
@@ -265,12 +219,13 @@ public class Page_smart extends BasePage {
      */
     public void clickGestureSwitch() throws Exception {
         //正常控件获取不知为何不起作用，这里采用坐标点击
-        mDevice.drag(300,200, 300,400,10);
+/*        mDevice.drag(300,200, 300,400,10);
         time(delayTimeMs);
         ClickElement(507,189,562,219);
         LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("gesture_switch")
                 .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        time(delayTimeMs);*/
+        findAndClick("iv_3d_gesture_switch");
     }
 
     /**
@@ -278,11 +233,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickLinkedSwitch() throws Exception {
-        stove_linked_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_stove_linked_switch"));
-        stove_linked_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("stove_linked_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_fan_stove_linked_switch");
     }
 
     /**
@@ -290,11 +241,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickPowerSwitch() throws Exception {
-        stove_power_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_stove_power_switch"));
-        stove_power_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("stove_power_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_fan_stove_power_switch");
     }
 
     /**
@@ -302,11 +249,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public void clickDelayedSwitch() throws Exception {
-        delayed_min_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_delayed_min_switch"));
-        delayed_min_switch.click();
-        LogUtil.d(TAG,"点击"+Page_smart.class.getDeclaredField("delayed_min_switch")
-                .getAnnotation(VariableDescription.class).value());
-        time(delayTimeMs);
+        findAndClick("iv_delayed_min_switch");
     }
 
 
@@ -315,13 +258,11 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkGestureSwitch() throws Exception {
-        //正常控件获取不知为何不起作用，这里采用坐标点击
-        mDevice.drag(300,200, 300,400,10);
-        time(delayTimeMs);
-        if (gesture_switch == null){
-            gesture_switch = WaitForExists(By.res(TAG_PACKAGEPAD, "iv_3d_gesture_switch"));
-        }
+        //滑动寻找到目标控件位置
+        find("iv_3d_gesture_switch");
+        gesture_switch = WaitForExists(By.res(TAG_PACKAGEPAD, "iv_3d_gesture_switch"));
         return isOpen(gesture_switch);
+
     }
 
     /**
@@ -329,9 +270,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkVariablSwitch() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "iv_variable_time_switch")),3000)){
-            mDevice.drag(300,200, 300,400,10);
-        }
+        find("iv_variable_time_switch");
         variable_time_switch = WaitForExists(By.res(TAG_PACKAGEPAD, "iv_variable_time_switch"));
         return isOpen(variable_time_switch);
     }
@@ -342,9 +281,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkBreathTimeSwitch() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "iv_fan_breath_time_switch")),3000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
+        find("iv_fan_breath_time_switch");
         breath_time_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_breath_time_switch"));
         return isOpen(breath_time_switch);
     }
@@ -354,6 +291,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkAerationSwitch() throws Exception {
+        find("iv_fan_aeration_switch");
         aeration_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_aeration_switch"));
         return isOpen(aeration_switch);
     }
@@ -363,6 +301,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkLinkedSwitch() throws Exception {
+        find("iv_fan_stove_linked_switch");
         stove_linked_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_stove_linked_switch"));
         return isOpen(stove_linked_switch);
     }
@@ -372,9 +311,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkOilSwitch() throws Exception {
-        if (!mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "iv_fan_oil_switch")),3000)){
-            mDevice.drag(300,400, 300,200,10);
-        }
+        find("iv_fan_oil_switch");
         iv_fan_oil_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_oil_switch"));
         return isOpen(iv_fan_oil_switch);
     }
@@ -385,6 +322,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkPowerSwitch() throws Exception {
+        find("iv_fan_stove_power_switch");
         stove_power_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_fan_stove_power_switch"));
         return isOpen(stove_power_switch);
     }
@@ -394,7 +332,7 @@ public class Page_smart extends BasePage {
      * @throws Exception
      */
     public Boolean checkDelayedSwitch() throws Exception {
-        mDevice.drag(700,400, 700,200,10);
+        find("iv_delayed_min_switch");
         delayed_min_switch =  WaitForExists(By.res(TAG_PACKAGEPAD, "iv_delayed_min_switch"));
         return isOpen(delayed_min_switch);
     }
@@ -570,6 +508,20 @@ public class Page_smart extends BasePage {
         int y = (y1+y2)/2;
         String rgb = getRGB((x1 + (x1 + x2) / 2) / 2, y);
         return !rgb.equals("ffffffff");
+    }
+
+    private void findAndClick(String resourceId) throws Exception {
+        UiScrollable uiScrollable = new UiScrollable(new UiSelector().className("android.widget.ScrollView"));
+        UiObject Obj = mDevice.findObject(new UiSelector().resourceId("com.robam.rokipad:id/"+ resourceId));
+        uiScrollable.scrollIntoView(Obj);
+        Obj.click();
+        time(delayTimeMs);
+    }
+
+    private void find(String resourceId) throws Exception {
+        UiScrollable uiScrollable = new UiScrollable(new UiSelector().className("android.widget.ScrollView"));
+        UiObject Obj = mDevice.findObject(new UiSelector().resourceId("com.robam.rokipad:id/"+ resourceId));
+        uiScrollable.scrollIntoView(Obj);
     }
 
 

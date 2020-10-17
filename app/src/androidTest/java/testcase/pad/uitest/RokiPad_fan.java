@@ -50,6 +50,13 @@ public class RokiPad_fan extends BaseTest {
 
     }
 
+    /**
+     * 1、先复位烟机档位，全部关掉
+     * 2、点击弱档，  验证是否打开，Toast内容是否正确
+     * 3、点击强档，  验证是否打开，Toast内容是否正确
+     * 4、点击爆炒挡，验证是否打开，Toast内容是否正确
+     * @throws Exception
+     */
     @Test
     @MethodDescription("风量照明测试")
     public void Test01_FanLight() throws Exception {
@@ -70,6 +77,13 @@ public class RokiPad_fan extends BaseTest {
         Assert.assertTrue("未发现"+ hint +"提示信息!",  processToast(hint));
     }
 
+    /**
+     * 1、复位烟机档位
+     * 2、点击清洗锁定
+     * 3、点击确定
+     * 4、点击返回
+     * @throws Exception
+     */
     @Test
     @MethodDescription("清洗锁定测试")
     public void Test02_CleanLock() throws Exception {
@@ -81,6 +95,13 @@ public class RokiPad_fan extends BaseTest {
     }
 
 
+    /**
+     * 1、复位烟机档位
+     * 2、点击小风量
+     * 3、点击AI隔空按钮
+     * 4、点击关闭动画
+     * @throws Exception
+     */
     @Test
     @MethodDescription("3D操控指示")
     public void Test03_AIWave() throws Exception {
@@ -91,6 +112,10 @@ public class RokiPad_fan extends BaseTest {
         fan.clickOK();
     }
 
+    /**
+     * 极简模式风量，逻辑参考正常模式
+     * @throws Exception
+     */
     @Test
     @MethodDescription("极简模式风量照明测试")
     public void Test04_SimpleFanLight() throws Exception {
@@ -118,6 +143,10 @@ public class RokiPad_fan extends BaseTest {
         fan.clickTvCancel();
     }
 
+    /**
+     * 依次点击主页底部选项卡
+     * @throws Exception
+     */
     @Test
     @MethodDescription("底部选项卡遍历")
     public void Test05_Tab() throws Exception {

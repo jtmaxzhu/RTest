@@ -12,7 +12,10 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.test.uiautomator.By;
 import android.support.test.uiautomator.Direction;
 import android.support.test.uiautomator.UiDevice;
+import android.support.test.uiautomator.UiObject;
 import android.support.test.uiautomator.UiObject2;
+import android.support.test.uiautomator.UiScrollable;
+import android.support.test.uiautomator.UiSelector;
 import android.util.Log;
 
 import com.googlecode.tesseract.android.TessBaseAPI;
@@ -42,6 +45,7 @@ import static framework.picUtil.Ocr.checkFile;
 import static lib.ComUtil.WaitForExists;
 import static lib.ComUtil.WaitForExistsList;
 import static lib.ComUtil.getRGB;
+import static lib.ComUtil.mDevice;
 import static lib.ComUtil.time;
 
 /**
@@ -269,6 +273,27 @@ public class PicTool  {
 //        }*/
 //        CmdTools.execAdbCmd("pm clear c", 0);
     }
+
+
+    @Test
+    public void pic7() throws Exception {
+        Instrumentation instrumentation = InstrumentationRegistry.getInstrumentation();
+        UiAutomation uiAutomation = instrumentation.getUiAutomation();
+
+/*        UiScrollable uiScrollable = new UiScrollable(new UiSelector().className("android.widget.ScrollView"));
+        //uiScrollable.setMaxSearchSwipes(1);
+        UiObject Obj = mDevice.findObject(new UiSelector().resourceId("com.robam.rokipad:id/iv_fan_oil_switch"));
+        uiScrollable.scrollIntoView(Obj);
+        Obj.click();*/
+
+        UiScrollable uiScrollable = new UiScrollable(new UiSelector().className("android.widget.ScrollView"));
+        UiObject Obj = mDevice.findObject(new UiSelector().resourceId("com.robam.rokipad:id/tv_variable_time"));
+        uiScrollable.scrollIntoView(Obj);
+        Obj.click();
+
+
+    }
+
 
 
 
