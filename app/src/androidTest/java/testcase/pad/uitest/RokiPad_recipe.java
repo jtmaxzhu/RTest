@@ -104,8 +104,9 @@ public class RokiPad_recipe extends BaseTest {
     @MethodDescription("搜索空菜谱")
     public void Test01_SearchNullRecipe() throws Exception {
         Page_recipe recipe = new Page_recipe();
-        //recipe.setRecipe("");
+        //点击搜索
         recipe.clickRecipeSearch();
+        //判断Toast内容
         Assert.assertTrue("未发现"+ hintErr +"提示信息!",  processToast(hintErr));
         time(delayTimeMs);
     }
@@ -120,8 +121,11 @@ public class RokiPad_recipe extends BaseTest {
     @MethodDescription("搜索菜谱不存在")
     public void Test03_SearchNoRecipe() throws Exception {
         Page_recipe recipe = new Page_recipe();
+        //设置搜索框文字
         recipe.setRecipe("电");
+        //点击搜索
         recipe.clickRecipeSearch();
+        //判断Toast内容
         Assert.assertEquals(hintResult,  recipe.getSearchResult());
         time(delayTimeMs);
     }
@@ -137,6 +141,7 @@ public class RokiPad_recipe extends BaseTest {
     @MethodDescription("使用历史记录搜索菜谱")
     public void Test04_SearchRecipeUseRecord() throws Exception {
         Page_recipe recipe = new Page_recipe();
+        //获取三个对象的list
         List<UiObject2> obj = recipe.getObj();
         //点击并返回历史搜索记录第一条，验证搜索结果是否正常
         obj.get(0).click();

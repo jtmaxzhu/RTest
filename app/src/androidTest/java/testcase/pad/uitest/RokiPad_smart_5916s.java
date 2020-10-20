@@ -53,18 +53,24 @@ public class RokiPad_smart_5916s extends BaseTest {
     @MethodDescription("设置爆炒时间")
     public void Test02_SetVariablTime() throws Exception {
         Page_smart smart = new Page_smart();
+        //点击爆炒时间
         smart.clickVariablTime();
         //判断开关是否打开，如果没打开就打开
         if (processToast(hint)){
             smart.clickVariableSwitch();
             smart.clickVariablTime();
         }
+        //设置参数1分钟
         smart.SetVar(1);
         Assert.assertEquals("1", smart.getVariablTime());
+        //再次点击爆炒时间
         smart.clickVariablTime();
+        //设置参数9分钟
         smart.SetVar(9);
         Assert.assertEquals("9", smart.getVariablTime());
+        //再次点击爆炒时间
         smart.clickVariablTime();
+        //设置参数3分钟
         smart.SetVar(3);
         Assert.assertEquals("3", smart.getVariablTime());
     }
@@ -123,8 +129,10 @@ public class RokiPad_smart_5916s extends BaseTest {
     public void Test01_Set3D() throws Exception {
         Page_leftbar leftbar = new Page_leftbar();
         leftbar.clickHome();
+        //如果主页有智能设定字样，说明智能设定没有开启
         if (mDevice.wait(Until.hasObject(By.res(TAG_PACKAGEPAD, "tv_smart_set")),1000)){
             LogUtil.d(TAG,"3D手势未开启");
+            //点击主页智能设定，跳转进入智能设定页面
             WaitForExists(By.res(TAG_PACKAGEPAD, "tv_smart_set")).click();
             Page_smart smart = new Page_smart();
             smart.clickGestureSwitch();

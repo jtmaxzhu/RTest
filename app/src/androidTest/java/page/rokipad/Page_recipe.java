@@ -100,11 +100,20 @@ public class Page_recipe extends BasePage {
         List<UiObject2> list = WaitForExistsList(By.clazz("android.widget.TextView"));
         for (UiObject2 obj : list){
             Rect rect = obj.getVisibleBounds();
-            if (rect.left == 589 && rect.right == 663 && rect.top == 25 && rect.bottom == 65){
+            if ((rect.left == 589 || rect.left == 598 )
+                    && (rect.right == 663 || rect.right == 666)
+                    && (rect.top == 25 || rect.top == 27)
+                    && (rect.bottom == 65 || rect.bottom == 70)){
                 recpObj.add(obj);
-            }else if(rect.left == 683 && rect.right == 757 && rect.top == 25 && rect.bottom == 65){
+            }else if((rect.left == 683 || rect.left == 686)
+                    && (rect.right == 757 || rect.right == 754)
+                    && (rect.top == 25  || rect.top == 27)
+                    && (rect.bottom == 65 || rect.bottom == 70)){
                 recpObj.add(obj);
-            }else if(rect.left == 777 && rect.right == 829 && rect.top == 25 && rect.bottom == 65){
+            }else if((rect.left == 777 || rect.left == 774)
+                    && (rect.right == 829 || rect.right == 818)
+                    && (rect.top == 25 || rect.top == 27)
+                    && (rect.bottom == 65 || rect.bottom == 70)){
                 recpObj.add(obj);
             }
         }

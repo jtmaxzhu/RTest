@@ -94,9 +94,11 @@ public class Page_center extends BasePage {
      */
     public void clickShareControl() throws Exception {
         shareControl =  WaitForExistsList(By.res(TAG_PACKAGEPAD, "tv_share_control_power"));
-        //shareControl.get(0).click();
-        Rect rect = shareControl.get(0).getVisibleBounds();
-        ClickElement(rect.left, rect.top, rect.right, rect.bottom);
+        //这里需要进行两次点击，一次点击弹窗跳不出来，原因暂时不知
+        shareControl.get(0).click();
+        shareControl.get(0).click();
+//        Rect rect = shareControl.get(0).getVisibleBounds();
+//        ClickElement(rect.left, rect.top, rect.right, rect.bottom);
         LogUtil.d(TAG,"点击"+Page_center.class.getDeclaredField("shareControl")
                 .getAnnotation(VariableDescription.class).value());
         time(delayTimeMs);

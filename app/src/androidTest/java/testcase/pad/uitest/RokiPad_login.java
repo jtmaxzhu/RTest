@@ -140,7 +140,7 @@ public class RokiPad_login extends BaseTest {
         Page_login login = new Page_login();
         login.clickScan();
         Assert.assertEquals(true,login.checkEWM());
-        //退出登录
+        //连续两次返回
         login.clickBack();
         login.clickBack();
     }

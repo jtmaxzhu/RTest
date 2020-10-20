@@ -4,10 +4,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import testcase.pad.uitest.RokiPad_center;
-import testcase.pad.uitest.RokiPad_fan;
+import testcase.pad.uitest.RokiPad_fan_5916s;
+import testcase.pad.uitest.RokiPad_fan_8236s;
 import testcase.pad.uitest.RokiPad_login;
 import testcase.pad.uitest.RokiPad_recipe;
-import testcase.pad.uitest.RokiPad_smart_5916s;
+import testcase.pad.uitest.RokiPad_smart_8236s;
 import testcase.pad.uitest.RokiPad_wifi;
 
 
@@ -18,8 +19,8 @@ import testcase.pad.uitest.RokiPad_wifi;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         RokiPad_login.class,
-        RokiPad_smart_5916s.class,
-        RokiPad_fan.class,
+        RokiPad_smart_8236s.class,
+        RokiPad_fan_8236s.class,
         RokiPad_center.class,
         RokiPad_recipe.class,
         RokiPad_wifi.class,

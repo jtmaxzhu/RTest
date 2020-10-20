@@ -110,11 +110,15 @@ public class RokiPad_center extends BaseTest {
         mDevice.swipe(1000,200,1000,400,15);
         //需要延时，注解
         time(1000);
+        //点击删除控制权
         center.clickDeleteControl();
+        //二次点击，因为不知道说明原因点一次可能没有弹窗出来，这里判断一下，如果没有弹窗出来，再点击一次
         if (WaitForExists(By.res(TAG_PACKAGEPAD, "tv_ok"))==null){
             center.clickDeleteControl();
         }
+        //点击删除
         center.clickOK();
+        //判断Toast内容
         Assert.assertTrue("未发现"+ hint1 +"提示信息!",  processToast(hint1));
         //退出登录
         center.clickTvLogin();
@@ -130,6 +134,7 @@ public class RokiPad_center extends BaseTest {
     public void TearDown() throws Exception {
         //点击侧边栏登录按钮
         Page_leftbar leftbar = new Page_leftbar();
+        //点击主页
         leftbar.clickHome();
     }
 

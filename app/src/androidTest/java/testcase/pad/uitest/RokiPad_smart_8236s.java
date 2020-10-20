@@ -58,11 +58,10 @@ public class RokiPad_smart_8236s extends BaseTest {
         smart.clickVariablTime();
         smart.SetVar(9);
         Assert.assertEquals("9", smart.getVariablTime());
-        /*
         smart.clickVariablTime();
         smart.SetVar(3);
         Assert.assertEquals("3", smart.getVariablTime());
-        */
+
     }
 
     @Test
@@ -80,12 +79,11 @@ public class RokiPad_smart_8236s extends BaseTest {
         smart.SetTimeDay(16,52);
         Assert.assertEquals("周六", smart.getWeekDay());
         Assert.assertEquals("16:52", smart.getTimeDay());
-        /*
         smart.clickWeekDay();
         smart.SetWeekDay("周三");
         smart.clickTimeDay();
         smart.SetTimeDay(12,30);
-        */
+
     }
 
     @Test
@@ -103,14 +101,12 @@ public class RokiPad_smart_8236s extends BaseTest {
         smart.clickAerationDay();
         smart.SetVar(1);
         Assert.assertEquals("1", smart.getAerationDay());
-        /*
         smart.clickAerationDay();
         smart.SetVar(3);
         Assert.assertEquals("3", smart.getAerationDay());
-        */
     }
 
-    @Test
+    //@Test
     @MethodDescription("设置油网清洗")
     public void Test04_SetOil() throws Exception {
         Page_smart smart = new Page_smart();
